@@ -207,4 +207,47 @@ data.describe().round(1)
 
 data変数の中の各カラムの相関係数(corr)を算出
 data.corr()
+
+data変数の中で数学カラムの中に重複がないことを確認
+len(data) == len(data['数学'].nunique())
+
+data変数の中で国語の点数が60点の人が3人います。重複レコードを削除
+data[~data['国語'].duplicated()]
+
+名前の行に重複が見られます。その行を削除(drop)
+data_2.drop_duplicates('name' ,inplace=True)
+data_2
+
+```
+
+```
+欠損値がある行を表示して下さい
+data_2.loc[data_2.isnull().any( axis = 1), :]
+
+
+
+DataFrame()
+データフレームワークの新規作成
+例文
+ importし pandas をpdという名前で使用できるようにします。
+import pandas as pd
+ pandasのDataFrame関数を呼び出し
+df = pd.DataFrame({'国語': [90, 60, 70:]})
+
+to_csv()
+データフレームをファイルに出力
+
+read_csv()
+csvやtextファイルのデータをデータフレームに読み込み。
+
+例pd.read_csv('/content/drive/MyDrive/a.csv')
+
+merge
+データフレーム同士をマージ。
+共通の列を持つデータフレーム同士を結合したい時。
+
+values
+特定の列データをarray型で取得。列のデータをarray形で受け取りたい時。
+
+
 ```
